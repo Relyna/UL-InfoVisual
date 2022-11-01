@@ -1,0 +1,108 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-negative&code=PYBwLglsB2AEC8sDeAoWszGAG0iAXMmuhgE4QDmFApqYQOQCGAHhAM70A0x6L7ACsAjQwtQqhIkwATxDUGbABaMAJsADu9HrAC-xHd3TZqNaCvHaVjMI0IBteoCg5QO62XWPUDoyoBq5egF19hrAU5OZEksYAZmAMAMwApFza5BSK0e4ALAmB6ABGwGCYALaxWdoAxjA2wgAyjDnU2IRgpACu1AHEzACCrGz22hKSGLLy7gBujNhtWpJ66L6B0j3s_ZKDkjJyDGXWJsCk0olDsHxsACoQZQDWFsfoShqEEZNs7ccG2uhWNvb0gMoJgHvYwBG6YB7zwAFIBwOUAznqATtNAM4-AEo3PRABx6gHl5QBdcoBj5UhGKRnHcgC-9QAIRoAuZUA_36ANGVAGGRgDW3QDhzmC4vj3IAGdVJgHxXQDlcoBuA0APApgwD9coBhRRZ9EAYqqAQZVAPxGgFD9QB0qqDIbDETMhgT6IBAeUAWHKAB1NkYA59UA4qmAPXTAIOegFIQwCqyoBZeUAFOqAdJ1ADIBgFPdKGAcXUXYARWLBoq49EA3MqAIzT9Zx6IAzbUAhBa6wDziX5tHNYAtiK9yNQ-rA7ANPrBoIxCqMnK5slIRgwcoxSEchmwbNcGGd8pNq-E6g1bncHuomq03kMPsdqIUQMo2CswncIsAyi0M_RUxB02rZiWvtZbJmAEwAVgAdNuAOycdIANl3AA4AAwE7dng_bgnpc-7zcnx8ATl3AEZzwSd_v3xvL9d3SdICRPdIL2vbdgK_E9_GOBMS3WEg8wLBhvBbUstncCsq1XWBa0Yet3EbGxsCwow20aCdji7Hs2m4HMByGIcR0YMcMxQyQpxnOcFyXZiCO-Dc7APSD0hiThtxiF9r1gSSXwfWAYN3cSb0vC9NwJcSQK_R9n1vTgYj3bSnwvdIEJIRN_B0ABuIA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+
+
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/extension/dataTool.min.js"></script>
+  -->
+    <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+    <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+    <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+    <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/extension/bmap.min.js"></script>
+  -->
+
+    <script type="text/javascript">
+        var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['上海', '北京']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'value'
+            }],
+            yAxis: [{
+                type: 'category',
+                axisTick: {
+                    show: false
+                },
+                data: ['道路面积(万平方米)', '常住人口(万人)', '建成区绿化覆盖率(%)', '地区生产总值(亿元)', '商品房待售面积(万平方米)', '企业数', '城镇非私营单位在岗职工平均工资(元)', '医院数', '学校数量']
+            }],
+            series: [{
+                name: '上海',
+                type: 'bar',
+                stack: 'Total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [25.57, 46.80, 56.75, 48.26, 49.18, 25.59, 51.44, 64.80, 51.16],
+                color: "#87626b"
+
+            }, {
+                name: '北京',
+                type: 'bar',
+                stack: 'Total',
+                label: {
+                    show: true,
+
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [74.43, 53.20, 43.25, 51.74, 50.82, 74.41, 48.56, 35.2, 48.84],
+                color: "#e89868"
+            }]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <title>地图数据可视化</title>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/themes/halloween.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/area-json.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body class="bg01">
+    <header class="header">
+        <h3>地图数据可视化</h3>
+    </header>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row fill-h">
+                <div class="col-lg-3 fill-h">
+                    <div class="xpanel-wrapper xpanel-wrapper-2">
+                        <div class="xpanel">
+
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+
+                            <div class="form-group">
+                                <label for="sel1">选择可视化数据:</label>
+                                <select class="form-control" id="sel1">
+								  <option>人口</option>
+								  <option>城市道路</option>
+								  <option>绿化覆盖率</option>
+								  <option>生产总值</option>
+								  <option>企业数量</option>
+								  <option>学校数量</option>
+								  <option>医院数量</option>
+								  <option>商品房待售面积</option>
+								  <option>平均工资</option>
+								</select>
+
+                            </div>
+                            <select name="" id="sheng">
+								<option value="">---请选择---</option>
+							</select>
+                            <select name="" id="shi">
+								<option value="">---请选择---</option>
+							</select>
+                            <select name="" id="qu">
+								<option value="">---请选择---</option>
+							</select>
+                            <!-- <div class="form-group">
+                                <label for="sel01">城市选择:</label>
+                                <select class="form-control" id="sel01">
+								  <option>123</option>
+								  <option id="compare">345</option>
+								</select>
+
+                            </div> -->
+                            <div class="form-group">
+                                <label for="sel2">数据模式:</label>
+                                <select class="form-control" id="sel2">
+								  <option>全选模式</option>
+								  <option id="compare">对比模式</option>
+								</select>
+
+                            </div>
+                            <button onclick="check()"><img src="images/generateButton.png" /></button>>
+                            <script>
+                                function check() {
+                                    var opt = document.getElementById("sel1").value;
+                                    var opt2 = document.getElementById("sel2").value;
+                                    if (opt2 != "对比模式")
+                                        switch (opt) {
+                                            case "人口":
+                                                window.location.href = "population.html";
+                                                break;
+                                            case "城市道路":
+                                                window.location.href = "CityRoads.html";
+                                                break;
+                                            case "绿化覆盖率":
+                                                window.location.href = "green.html";
+                                                break;
+                                            case "生产总值":
+                                                window.location.href = "饼图.html";
+                                                break;
+                                            case "企业数量":
+                                                window.location.href = "enterprise.html";
+                                                break;
+                                            case "学校数量":
+                                                window.location.href = "school.html";
+                                                break;
+                                            case "医院数量":
+                                                window.location.href = "hospital.html";
+                                                break;
+                                            case "商品房待售面积":
+                                                window.location.href = "house.html";
+                                                break;
+                                            case "平均工资":
+                                                window.location.href = "salary.html";
+                                                break;
+                                        }
+                                    else
+                                        window.location.href = "bar-negative.html";
+
+                                }
+                            </script>
+                            <!-- Single button -->
+                            <!-- <div class="dropdown">
+                                <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  Dropdown trigger
+								  <span class="caret"></span>
+								</button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    ...
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="xpanel-wrapper xpanel-wrapper-2">
+                        <div class="xpanel">
+                            <!-- 世界地图 -->
+                            <div class="fill-h" id="worldMap"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 fill-h">
+                    <div class="xpanel-wrapper xpanel-wrapper-1">
+                        <div class="xpanel">
+                            <!-- 地图散点 -->
+                            <div id="f2e443d4d97f43fcaa1bb4369424a7b0" class="chart-container" style="width:900px; height:800px;"></div>
+                            <script type="text/javascript" src="/js/main.js"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 fill-h">
+                    <div class="xpanel-wrapper xpanel-wrapper-3">
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                        <div class="list-group">
+                            <button type="button" class="list-group-item" onclick="window.location.href = 'TOP8_条形图.html'">人口数TOP8								</button>
+                            <button type="button" class="list-group-item">城市道路</button>
+                            <button type="button" class="list-group-item">绿化覆盖率</button>
+                            <button type="button" class="list-group-item">生产总值</button>
+                            <button type="button" class="list-group-item">企业数量</button>
+                            <button type="button" class="list-group-item">学校数量</button>
+                            <button type="button" class="list-group-item">医院数量</button>
+                            <button type="button" class="list-group-item">商品房待售面积</button>
+                            <button type="button" class="list-group-item">平均工资</button>
+                        </div>
+                    </div>
+                    <div class="xpanel-wrapper xpanel-wrapper-3">
+                        <div class="xpanel">
+                            <!-- 城市地图 -->
+                            <div class="fill-h" id="cityMap"></div>
+                        </div>
+                    </div>
+                    <div class="xpanel-wrapper xpanel-wrapper-3">
+                        <div class="xpanel">
+                            <!-- 区县地图 -->
+                            <div class="fill-h" id="countyMap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    // 3.分别获取这三个下拉框
+    var sheng = document.getElementById("sheng");
+    var shi = document.getElementById("shi");
+    var qu = document.getElementById("qu");
+    var frag = document.createDocumentFragment();
+    // 4.遍历数据
+    for (var i = 0; i < data.length; i++) {
+        console.log(data[i]);
+        var option = document.createElement("option");
+        option.innerHTML = data[i].name;
+        option.value = data[i].code;
+        frag.appendChild(option);
+    }
+    // 5.添加到省级下拉框中
+    sheng.appendChild(frag);
+
+    // 1.创建一个数组，用于存放市级数据
+    var shiArr = []
+        // 2.给省级下拉框绑定事件,onchang(当省级数据变化时，触发该事件)
+    sheng.onchange = function() {
+        //清空市级与区级中的数据，防止重复
+        shi.innerHTML = "<option value=\"\">---请选择---</option>"
+        qu.innerHTML = "<option value=\"\">---请选择---</option>"
+            // 3.遍历数据，将遍历的数据与当前的省作比较，将相对应的市级数据存放到数组中
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].code == this.value) {
+                shiArr = data[i].children;
+                break;
+            }
+        }
+        // 4.遍历市级数据
+        for (var j = 0; j < shiArr.length; j++) {
+            var option = document.createElement("option");
+            option.innerHTML = shiArr[j].name;
+            option.value = shiArr[j].code;
+            frag.appendChild(option);
+        }
+        shi.appendChild(frag);
+    }
+    var quArr = []
+    shi.onchange = function() {
+        qu.innerHTML = "<option value=\"\">---请选择---</option>"
+        for (var i = 0; i < shiArr.length; i++) {
+            if (shiArr[i].code == this.value) {
+                quArr = shiArr[i].children;
+                break;
+            }
+        }
+        for (var j = 0; j < quArr.length; j++) {
+            var option = document.createElement("option");
+            option.innerHTML = quArr[j].name;
+            option.value = quArr[j].code;
+            frag.appendChild(option);
+        }
+        qu.appendChild(frag);
+    }
+</script>
+
+</head>
+
+</html>
