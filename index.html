@@ -1,40 +1,107 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="Description" content="HomePage">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>HomePage</title>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="echarts.min.js"></script>
+    <script src="appearance.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body id="bgid" onload="changeBg()">
-    <header>
-        <div class="img">
-            <!-- <img src="images/头像.png" > -->
-            <div class="clock">
-                <p id="1">0</p>
-                <p id="2">0</p>
-                <p id="3">:</p>
-                <p id="4">0</p>
-                <p id="5">0</p>
-                <p id="6">:</p>
-                <p id="7">0</p>
-                <p id="8">0</p>
-            </div>
-        </div>
-
-    </header>
-    <div class="container">
-        <ul>
-            <li>
-                <a href="test.html" target="_blank"><img src="images/enterButton.png" alt=""></a>
-                <!-- <button type="button" onclick="window.location.href ='index copy.html'"> 删除</button> -->
-            </li>
-        </ul>
+<body style="background-image: url(images/start.png);">
+    <div id="mask" style="width: 100%; height: 100%; background-color: white;">
+        <div id="main" style="width: 100%; height: 100%;"></div>
     </div>
-    <script src="js/index.js"></script>
+    <script type="text/javascript">
+        var tween = function (obj, prop, start, end, duration, callback) {
+            var startTime = new Date().getTime();
+            var timer = setInterval(function () {
+                var time = new Date().getTime() - startTime;
+                if (time > duration) {
+                    time = duration;
+                }
+                var value = (end - start) / duration * time + start;
+                obj[prop] = value;
+                if (time == duration) {
+                    clearInterval(timer);
+                    callback && callback();
+                }
+            }, 13);
+        }
+
+        var myChart = echarts.init(document.getElementById('main'), 'essos');
+        // 指定图表的配置项和数据
+        var option = {
+            graphic: {
+                elements: [{
+                        type: 'text',
+                        left: 'center',
+                        top: 'center',
+                        style: {
+                            text: 'URBAN LIVABILITY',
+                            fontSize: 100,
+
+                            fontWeight: 'bold',
+                            lineDash: [0, 200],
+                            lineDashOffset: 0,
+                            lineStyle: {
+                                color: 'black'
+                            },
+                            fill: 'transparent',
+                            stroke: 'black',
+                            lineWidth: 2
+                        },
+                        keyframeAnimation: {
+                            duration: 3000,
+                            loop: false,
+                            keyframes: [{
+                                percent: 0.5,
+                                style: {
+                                    fill: 'transparent',
+                                    lineDashOffset: 200,
+                                    lineDash: [200, 0]
+                                }
+                            }, {
+                                // Stop for a while.
+                                percent: 0.6,
+                                style: {
+                                    fill: 'transparent'
+                                }
+                            }, {
+                                percent: 0.7,
+                                style: {
+                                    fill: 'black',
+                                }
+                            }, {
+                                percent: 0.9,
+                                style: {
+                                    fill: 'black',
+                                    lineWidth: 2
+                                }
+                            }, {
+                                percent: 1,
+                                style: {
+                                    fill: 'transparent',
+                                    lineWidth: 2,
+                                    lineDashOffset: 0,
+                                    lineWidth: 0
+                                }
+                            }]
+                        }
+                    }
+                ]
+            }
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        setTimeout(function() {
+            var mask = document.getElementById('mask');
+            tween(mask.style, 'opacity', 1, 0, 500);
+        }, 2500);
+    </script>
 </body>
 
 </html>
