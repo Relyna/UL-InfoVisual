@@ -1,0 +1,9 @@
+#button {
+    background-image: url(../images/enterButton.png);
+    width: 317px;
+    height: 116px;
+    position: absolute;
+    bottom: 13%;
+    left: 8%;
+    opacity: 0;
+}

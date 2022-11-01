@@ -8,12 +8,14 @@
     <script src="echarts.min.js"></script>
     <script src="appearance.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body style="background-image: url(images/start.png);">
     <div id="mask" style="width: 100%; height: 100%; background-color: white;">
         <div id="main" style="width: 100%; height: 100%;"></div>
     </div>
+    <div id="button" onclick="window.location.replace('./main.html')"></div>
     <script type="text/javascript">
         var tween = function (obj, prop, start, end, duration, callback) {
             var startTime = new Date().getTime();
@@ -100,6 +102,10 @@
         setTimeout(function() {
             var mask = document.getElementById('mask');
             tween(mask.style, 'opacity', 1, 0, 500);
+            setTimeout(function() {
+                var button = document.getElementById('button');
+                tween(button.style, 'opacity', 0, 1, 500);
+            }, 1000);
         }, 2500);
     </script>
 </body>

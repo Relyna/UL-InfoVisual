@@ -1,5 +1,5 @@
 var chart_f2e443d4d97f43fcaa1bb4369424a7b0 = echarts.init(
-    document.getElementById('f2e443d4d97f43fcaa1bb4369424a7b0'), 'halloween', { renderer: 'canvas' });
+    document.getElementById('echartMain'), 'essos', { renderer: 'canvas' });
 var option_f2e443d4d97f43fcaa1bb4369424a7b0 = {
     "animation": true,
     "animationThreshold": 2000,
@@ -11,7 +11,7 @@ var option_f2e443d4d97f43fcaa1bb4369424a7b0 = {
     "animationDelayUpdate": 0,
     "series": [{
         "type": "effectScatter",
-        "name": "city",
+        // "name": "city",
         "coordinateSystem": "geo",
         "showEffectOn": "render",
         "rippleEffect": {
@@ -2429,7 +2429,7 @@ var option_f2e443d4d97f43fcaa1bb4369424a7b0 = {
     },
     "title": [{
         "text": "\u5168\u56fd\u5730\u7ea7\u5e02\u4eba\u53e3\uff08\u4e07\u4eba\uff09",
-        "subtext": "\u6570\u636e\u6765\u6e90\uff1aXXX",
+        // "subtext": "\u6570\u636e\u6765\u6e90\uff1aXXX",
         "padding": 5,
         "itemGap": 10
     }],
@@ -2440,12 +2440,7 @@ var option_f2e443d4d97f43fcaa1bb4369424a7b0 = {
         "max": 3300,
         "inRange": {
             "color": [
-                "#ffe696", "#e89868", /*"#ffda85","#ffc17a",,"#dbb18a",*/ "#87626b"
-
-
-
-
-
+                "#ffe696", "#e89868", "#87626b"
             ]
         },
         "calculable": true,
@@ -2455,15 +2450,27 @@ var option_f2e443d4d97f43fcaa1bb4369424a7b0 = {
         "showLabel": true,
         "itemWidth": 20,
         "itemHeight": 140,
-        "borderWidth": 0
+        "borderWidth": 0,
+        "textStyle": {
+            "color": "white"
+        }
     },
     "geo": {
         "map": "china",
-        "roam": true,
+        "roam": false,
         "aspectScale": 0.75,
         "nameProperty": "name",
         "selectedMode": false,
-        "emphasis": {},
+        "itemStyle": {
+            "normal": {
+                "areaColor": "rgba(255, 255, 255, 0.4)",
+            }
+        },
+        "emphasis": {
+            "itemStyle": {
+                "areaColor": "#c8d7e3"
+            }
+        },
 
     }
 };

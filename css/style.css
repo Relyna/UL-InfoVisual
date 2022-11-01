@@ -82,6 +82,12 @@ li {
     transition: all 0.2s;
 }
 
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* .container ul li a img {
     margin: 5px;
