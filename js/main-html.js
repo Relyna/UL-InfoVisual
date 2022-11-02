@@ -53,6 +53,8 @@ var generate = function() {
         if (properties.length > 0)
             drawChart(properties[0], chartBox);
     } else {
+        properties = [];
+        drawChart("compare",chartBox);
     }
 }
 
@@ -125,8 +127,11 @@ var drawChart = function(property, chartBox) {
         case "salary":
             salaryChart(chart);
             break;
+        case "compare":
+            compareChart(chart);
+            break;
         default:
-            alert("未找到" + properties[i] + "对应的图表");
+            alert("未找到" + property + "对应的图表");
             break;
     }
 }
