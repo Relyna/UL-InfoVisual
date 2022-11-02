@@ -80,7 +80,6 @@ body.bg01 {
     padding: 15px;
     height: 100%;
     min-height: 170px;
-    /*background:url("../img/panel.png") center no-repeat;*/
     background-size: 100% 100%;
     box-sizing: border-box;
 }
@@ -127,11 +126,50 @@ body {
     max-width: 1920px;
 }
 
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
 #generateButton {
-    background-image: url(../images/generateButton.png);
-    width: 260px;
-    height: 101px;
+    width: 200px;
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+#leftPanel {
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    left: -120%;
+}
+
+#rightPanel {
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    right: -120%;
+    padding: 10px;
+}
+
+.showPanelBtn {
+    width: 100px;
+}
+
+.BtnText {
+    font-size: xx-large;
+    position: relative;
+    color: white;
+}
+
+#leftBtnText:hover {
+    left: -10px;
+}
+
+#rightBtnText:hover {
+    right: -10px;
+}
+
+#chart-box {
+    height: 100%;
+    padding-top: 100px;
 }

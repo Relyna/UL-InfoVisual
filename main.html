@@ -13,6 +13,8 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/area-json.js"></script>
+    <script type="text/javascript" src="js/tween.js"></script>
+    <script type="text/javascript" src="js/showpanel.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
@@ -22,13 +24,12 @@
 </head>
 
 <body class="bg01">
-    <div class="wrapper">
-        <div class="container-fluid">
+    <div class="wrappe fill-h">
+        <div class="container-fluid fill-h">
             <div class="row fill-h">
-                <div class="col-lg-3 fill-h">
-                    <div class="xpanel-wrapper xpanel-wrapper-2">
+                <div class="col-lg-3 fill-h vertical-center">
+                    <div id="leftPanel">
                         <div class="xpanel">
-
                             <form class="navbar-form navbar-left" role="search">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Search">
@@ -60,14 +61,6 @@
                             <select name="" id="qu">
                                 <option value="">---请选择---</option>
                             </select>
-                            <!-- <div class="form-group">
-                                <label for="sel01">城市选择:</label>
-                                <select class="form-control" id="sel01">
-								  <option>123</option>
-								  <option id="compare">345</option>
-								</select>
-
-                            </div> -->
                             <div class="form-group">
                                 <label for="sel2">数据模式:</label>
                                 <select class="form-control" id="sel2">
@@ -115,28 +108,16 @@
 
                                 }
                             </script>
-                            <!-- Single button -->
-                            <!-- <div class="dropdown">
-                                <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								  Dropdown trigger
-								  <span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                    ...
-                                </ul>
-                            </div> -->
                         </div>
                     </div>
-                    <div class="xpanel-wrapper xpanel-wrapper-2">
-                        <div class="xpanel">
-                            <!-- 世界地图 -->
-                            <div class="fill-h" id="worldMap"></div>
-                        </div>
+                    <div id="leftBtnText" class="BtnText" onclick="showLeftPanel()">
+                        <img class="showPanelBtn" src="./images/箭头_向左两次.png">
+                        Choose City
                     </div>
                 </div>
                 <div class="col-lg-6 fill-h">
                     <div class="xpanel-wrapper xpanel-wrapper-1">
-                        <div class="xpanel">
+                        <div id="chart-box">
                             <!-- 地图散点 -->
                             <div id="echartMain" class="chart-container"
                                 style="width:100%;height: 90%"></div>
@@ -144,8 +125,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 fill-h">
-                    <div class="xpanel-wrapper xpanel-wrapper-3">
+                <div class="col-lg-3 fill-h vertical-center">
+                    <div id="rightPanel" class="xpanel-wrapper xpanel-wrapper-3">
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Search">
@@ -165,23 +146,15 @@
                             <button type="button" class="list-group-item">平均工资</button>
                         </div>
                     </div>
-                    <div class="xpanel-wrapper xpanel-wrapper-3">
-                        <div class="xpanel">
-                            <!-- 城市地图 -->
-                            <div class="fill-h" id="cityMap"></div>
-                        </div>
-                    </div>
-                    <div class="xpanel-wrapper xpanel-wrapper-3">
-                        <div class="xpanel">
-                            <!-- 区县地图 -->
-                            <div class="fill-h" id="countyMap"></div>
-                        </div>
+                    <div id="rightBtnText" class="BtnText" onclick="showRightPanel()">
+                        Choose Info
+                        <img class="showPanelBtn" src="./images/箭头_向右两次.png">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="generateButton" onclick="check()"></div>
+    <img id="generateButton" onclick="check()" src="./images/generateButton.png"></img>
 </body>
 <script>
     // 3.分别获取这三个下拉框
