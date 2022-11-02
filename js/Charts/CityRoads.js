@@ -56,6 +56,44 @@ var cityroadsChart = function (element) {
             }
         ],
 
+        dataZoom: [
+            {
+              type: 'slider',
+              show: true,
+              // 设置组件控制的y轴
+              yAxisIndex: 0,
+              right: 40,    
+              top: 60,
+              // 数据窗口范围的起始百分比。范围是：0 ~ 100。表示 0% ~ 100%
+              // 也可以用 startValue设置起始值
+              start: 0,
+              end: 5,
+              width: 12,
+              height: 450,
+              // 组件的背景颜色
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
+              // 选中范围的填充颜色
+              fillerColor: '#ffe696',
+              // 边框颜色
+              borderColor: '#ffffff',
+              // 是否显示detail，即拖拽时候显示详细数值信息
+              showDetail: false,
+              // 控制手柄的尺寸
+              handleSize: 16,
+              // 是否在 dataZoom-silder 组件中显示数据阴影。数据阴影可以简单地反应数据走势。
+              showDataShadow: false,
+            },
+            {
+              type: 'inside',
+              yAxisIndex: [0],
+              start: 29,
+              end: 36,
+              // 不按任何功能键，鼠标滚轮能触发缩放
+              zoomOnMouseWheel: false,
+              // 不按任何功能键，鼠标移动能触发数据窗口平移
+              moveOnMouseWheel: true
+            }
+          ],
         series: [
             {
                 name: "城市道路面积",

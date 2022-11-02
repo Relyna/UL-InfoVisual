@@ -28,14 +28,14 @@
             "#ffda85",
             "#ffe696"
         ],
-        "backgroundColor": "rgba(242,234,191,0.15)",
+        "backgroundColor": "rgba(255,255,255,0.15)",
         "textStyle": {},
         "title": {
             "textStyle": {
-                "color": "#893448"
+                "color": "#ffffff"
             },
             "subtextStyle": {
-                "color": "#d95850"
+                "color": "#ffffff"
             }
         },
         "line": {
@@ -196,7 +196,7 @@
             },
             "axisLabel": {
                 "show": true,
-                "color": "#999999"
+                "color": "#ffffff"
             },
             "splitLine": {
                 "show": true,
@@ -231,7 +231,7 @@
             },
             "axisLabel": {
                 "show": true,
-                "color": "#999999"
+                "color": "#ffffff"
             },
             "splitLine": {
                 "show": true,
@@ -266,7 +266,7 @@
             },
             "axisLabel": {
                 "show": true,
-                "color": "#999999"
+                "color": "#ffffff"
             },
             "splitLine": {
                 "show": true,
@@ -301,7 +301,7 @@
             },
             "axisLabel": {
                 "show": true,
-                "color": "#999999"
+                "color": "#ffffff"
             },
             "splitLine": {
                 "show": true,

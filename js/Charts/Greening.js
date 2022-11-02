@@ -2047,7 +2047,7 @@ var greeningChart = function (element)
                     // "#50a3ba",
                     // "#eac763",
                     // "#d94e5d"
-                    "#dceba4", "#a5d785", "#54974e"
+                    "#fffb9c", "#54974e"
                 ]
             },
             "calculable": true,
@@ -2061,11 +2061,20 @@ var greeningChart = function (element)
         },
         "geo": {
             "map": "china",
-            "roam": true,
+            "roam": false,
             "aspectScale": 0.75,
             "nameProperty": "name",
             "selectedMode": false,
-            "emphasis": {}
+            "itemStyle": {
+                "normal": {
+                    "areaColor": "rgba(255, 255, 255, 0.4)",
+                }
+            },
+            "emphasis": {
+                "itemStyle": {
+                    "areaColor": "#c8d7e3"
+                }
+            },
         }
     };
     chart_66143f62b7ae47be9cb61b512473dfa2.setOption(option_66143f62b7ae47be9cb61b512473dfa2);

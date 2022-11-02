@@ -2495,9 +2495,15 @@ var gdpChart = function(element)
     "nameProperty": "name",
     "selectedMode": false,
     "itemStyle": {
-        "color": "#c4ccd3"
+        "normal": {
+            "areaColor": "rgba(255, 255, 255, 0.4)",
+        }
     },
-    "emphasis": {}
+    "emphasis": {
+        "itemStyle": {
+            "areaColor": "#c8d7e3"
+        }
+    },
 }
 };
     chart_30f3c05a75014ae8a11591cc7b411dfb.setOption(option_30f3c05a75014ae8a11591cc7b411dfb);
